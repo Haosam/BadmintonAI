@@ -1,8 +1,25 @@
-# Object Tracking using YOLOv3, Deep Sort and Tensorflow
-This repository implements YOLOv3 and Deep SORT in order to perfrom real-time object tracking. Yolov3 is an algorithm that uses deep convolutional neural networks to perform object detection. We can feed these object detections into Deep SORT (Simple Online and Realtime Tracking with a Deep Association Metric) in order for a real-time object tracker to be created.
+### For a more generic view on how to deploy this code, please go to [this link](https://github.com/Haosam/BadmintonAI/blob/master/Yolov3_deepsort/README.md) and read through the readme
 
-![Demo of Object Tracker](data/helpers/demo.gif)
+# Badminton Service
+Badminton has been a long standing sport since it was first played in 1860s. We have seen badminton greats from Rudy Hartono, to Peter Gade and the legendary battles between Lee Chong Wei and Lin Dan during their long spanning careers, to superstars like Kento Momota.  
+In recent times, technology has started to play a part in current badminton such as the Hawkeye where players are given chances to challenge line calls made by line judges against their favour. The usage of such cameras has allowed players to have a more equal playing chance on the court.  
+  
+Badminton service has been an issue during matches since the new ruling of the shuttlecock must be 1.15 metres off the ground when serving.  
+There are service judges sitting at the side with the following equipment below  
+![Service Judge stand for Badminton Service](data/helpers/sidejudge.jpeg)  
+And this is an example of the view they see  
+![Side Judge View when serving](data/helpers/sidejudge2.jpeg) 
 
+During this period of Covid-19, many sports events have been cancelled and badminton likewise has been affected. I decided to try and aid referees in determining whether players have adhered to the service rules using the YOLO algorithm through Machine Learning and Basic Python Programming.\
+\
+The following are the results  
+![Demo of 1.15m Service Line on Lee Chong Wei vs Son Wan Ho](data/helpers/lcwvsswh.gif)\
+Demo of 1.15m Service Line on Lee Chong Wei vs Son Wan Ho taken by Shuttle Amazing\
+\
+![Demo doubles match](data/helpers/macauopen1.gif)\
+Demo of 1.15m Service Line on Macau Open 2018 taken by JyinLaw\
+# How to deploy this repository?
+This repository implements YOLOv3 and Deep SORT in order to perfrom real-time object tracking. Yolov3 is an algorithm that uses deep convolutional neural networks to perform object detection. We can feed these object detections into Deep SORT (Simple Online and Realtime Tracking with a Deep Association Metric) in order for a real-time object tracker to be created. It also draws a line 1.15m respective to the ground the ensure that the player does not break the service rules
 ## Getting started
 
 #### Conda (Recommended)
@@ -67,31 +84,23 @@ python load_weights.py --weights ./weights/<YOUR CUSTOM WEIGHTS FILE> --output .
 ```
 
 After executing one of the above lines, you should see proper .tf files in your weights folder. You are now ready to run object tracker.
+To obtain my custom trained yolo weights, please use this [link](https://drive.google.com/file/d/1oOchR-VzftixTF09w-E3aTvkt6bG8XmB/view?usp=sharing)
 
 ## Running the Object Tracker
 Now you can run the object tracker for whichever model you have created, pretrained, tiny, or custom.
 ```
-# yolov3 on video
-python object_tracker.py --video ./data/video/test.mp4 --output ./data/video/results.avi
-
-#yolov3 on webcam 
-python object_tracker.py --video 0 --output ./data/video/results.avi
-
-#yolov3-tiny 
-python object_tracker.py --video ./data/video/test.mp4 --output ./data/video/results.avi --weights ./weights/yolov3-tiny.tf --tiny
-
+# For the badminton tracker we are using a yolov3 custom
+# <# CLASSES> is 1
+# <YOUR CUSTOM .names FILE. is obj.names
 #yolov3-custom (add --tiny flag if your custom weights were trained for tiny model)
-python object_tracker.py --video ./data/video/test.mp4 --output ./data/video/results.avi --weights ./weights/yolov3-custom.tf --num_classes <# CLASSES> --classes ./data/labels/<YOUR CUSTOM .names FILE>
+python object_tracker_edit.py --video ./data/video/b1.mp4 --output ./data/video/b1results.avi --weights ./weights/yolov3-custom.tf --num_classes <# CLASSES> --classes ./data/labels/<YOUR CUSTOM .names FILE>
+
+
+
+#If you don't want to figure out what to type, just use the following command
+python object_tracker_edit.py --video ./data/video/b1.mp4 --output ./data/video/b1results.avi --weights ./weights/yolov3-custom.tf --num_classes 1 --classes ./data/labels/obj.names
 ```
 The output flag saves your object tracker results as an avi file for you to watch back. It is not necessary to have the flag if you don't want to save the resulting video.
-
-There is a test video uploaded in the data/video folder called test.mp4. If you followed all the steps properly with the pretrained coco yolov3.weights model then when your run the object tracker wiht the first command above you should see the following.
-#### Video Example
-![Demo of Object Tracker](data/helpers/demo.gif)
-
-#### Webcam Example
-This is a demo of running the object tracker using the above command for running the object tracker on your webcam.
-![Webcam Demo](data/helpers/webcam_demo.gif)
 
 ## Command Line Args Reference
 ```
@@ -133,7 +142,43 @@ object_tracker.py:
     (a float)
 ```
 
+## Explanation of the other parts apart from the object tracker
+player.py is a tkinker GUI used to allow the selection of the player playing. This allows you to select who you want in your video. The values I used are currently hardcoded and not put into a db or json file, so I have a few available players and their heights written into players.py file
+
+# *Current Usage of this code*
+```
+1) Run python object_tracker_edit.py --video ./data/video/b1.mp4 --output ./data/video/b1results.avi --weights ./weights/yolov3-custom.tf --num_classes 1 --classes ./data/labels/obj.names
+2) Please select Player 1, Player 2, Player 3, Player 4 first (Please do this regardless of singles or doubles matches)
+3) Press the x button to cancel the window
+4) Identify the players identified as Player 1, Player 2, Player 3, Player 4 in the first run of the video and Remember who they are
+5) press q to stop the process
+6) Run python object_tracker_edit.py --video ./data/video/b1.mp4 --output ./data/video/b1results.avi --weights ./weights/yolov3-custom.tf --num_classes 1 --classes ./data/labels/obj.names
+7) Select the players according to what you have remembered in step (4)
+8) Let the video process and watch the saved video after this is done
+```
+![Playerselect](data/helpers/playerselect.jpeg)\
+Example of Player Selector - TKinter
+
+### Current Flaws in algorithm and hardware
+** Please NOTE: I may or may not continue this project as I am currently working as a System Engineer with a few projects on hand.\
+I may or may not respond to issues raised also\
+\
+While embarking on this project, these are some of the problems I have faced and expect to encounter on the code, hardware and actual video side
+- [ ] FPS is limited to 10~11fps. I am currently using a NVDIA 1080 for training. I do not expect to get any higher due to the large YOLO network, but I was hoping to get above 20fps to be able to test on real world live streaming. I am also using Windows, which may produce a lower fps rate.
+- [ ] NVIDA 1080. I'm sorry, I'm not a rich person that can afford a server running multiple NVDIA Pascal Titan X
+- [ ] Double loop problem. The TKinter GUI is running in a loop to obtain the names of the players until it is cancelled. The video processing is also a loop. I have not figured a way to enable both loops to run simulataneously. If that happens. You can change the values of the Player Names as the video is being processed. This would be a huge improvement on what I have written
+- [ ] Player control. The current 1.15m is calculated w.r.t the players' heights from the approximate base of their shoes, and not the absolute height as stated in the bwf rules. A player may be able to manipulate this by kneeling low or physically lowering his/her height during service (Although I do not understand why they would do that, as the green line would just lower with the player)
+- [ ] Camera angle - It was difficult sourcing for good videos with good camera angles online as to run this yolo algorithm, it requires the camera to 'see' the player from the full height, rather than a bird eye view like what badmintonworld shows on their youtube channel
+- [ ] Video framing - Most good view videos have been edited by the video owners to reduce time wastage and focus on the game. However when deploying this algorithm, this causes an issue as deepsort works by 'anticipating' the next movement of the player. This causes frame cuts to detect the players as whole new different players
+- [ ] Player interference - This happens especially in doubles. If 2 players enter the same frame, they are detected as 1 player, and when they leave the frame, the algorithm is unable to detect them as 2 separate players again as shown in the gif above.\
+---> Possible solution, run yolov3 only with a facial recognition module. Deepsort might not be required for this to work
+- [ ] Coach detection - Due to the similarity in uniforms of the coach and players, if the coach comes into the screen of the video, they will be detected as players.\
+---> Possible solution as stated above
+
 ## Acknowledgments
+* [theAIGuysCode](https://github.com/theAIGuysCode/yolov3_deepsort)
+* [JyinLaw Youtube Channel](https://www.youtube.com/channel/UC_4Qnq-oTiOWdTl64YmNQ-A/featured)
+* [Shuttle Amazing Youtube Channel](https://www.youtube.com/channel/UC3oV6PiHq4QzxFefiUSbcnw)
 * [Yolov3 TensorFlow Amazing Implementation](https://github.com/zzh8829/yolov3-tf2)
 * [Deep SORT Repository](https://github.com/nwojke/deep_sort)
 * [Yolo v3 official paper](https://arxiv.org/abs/1804.02767)
