@@ -14,10 +14,11 @@ During this period of Covid-19, many sports events have been cancelled and badmi
 \
 The following are the results  
 ![Demo of 1.15m Service Line on Lee Chong Wei vs Son Wan Ho](data/helpers/lcwvsswh.gif)\
-Demo of 1.15m Service Line on Lee Chong Wei vs Son Wan Ho taken by Shuttle Amazing\
+Demo of 1.15m Service Line on Lee Chong Wei vs Son Wan Ho taken by [Shuttle Amazing](https://www.youtube.com/channel/UC3oV6PiHq4QzxFefiUSbcnw)
 \
 ![Demo doubles match](data/helpers/macauopen1.gif)\
-Demo of 1.15m Service Line on Macau Open 2018 taken by JyinLaw\
+Demo of 1.15m Service Line on Macau Open 2018 taken by [JyinLaw](https://www.youtube.com/channel/UC_4Qnq-oTiOWdTl64YmNQ-A/featured)
+
 # How to deploy this repository?
 This repository implements YOLOv3 and Deep SORT in order to perfrom real-time object tracking. Yolov3 is an algorithm that uses deep convolutional neural networks to perform object detection. We can feed these object detections into Deep SORT (Simple Online and Realtime Tracking with a Deep Association Metric) in order for a real-time object tracker to be created. It also draws a line 1.15m respective to the ground the ensure that the player does not break the service rules
 ## Getting started
@@ -156,7 +157,7 @@ player.py is a tkinker GUI used to allow the selection of the player playing. Th
 7) Select the players according to what you have remembered in step (4)
 8) Let the video process and watch the saved video after this is done
 ```
-![Playerselect](data/helpers/playerselect.jpg)\
+![Playerselect](data/helpers/playerselect.JPG)
 Example of Player Selector - TKinter
 
 ### Current Flaws in algorithm and hardware
