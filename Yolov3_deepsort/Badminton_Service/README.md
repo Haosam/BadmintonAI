@@ -6,11 +6,12 @@ In recent times, technology has started to play a part in current badminton such
   
 Badminton service has been an issue during matches since the new ruling of the shuttlecock must be 1.15 metres off the ground when serving.  
 There are service judges sitting at the side with the following equipment below  
-![Service Judge stand](data/helpers/sidejudge.jpg)  
-And this is an example of the view they see  
+![Service Judge stand](data/helpers/sidejudge.jpg)\
+\
+And this is an example of the view they see\
 ![Side Judge View](data/helpers/sidejudge2.jpg) 
 
-During this period of Covid-19, many sports events have been cancelled and badminton likewise has been affected. I decided to try and aid referees in determining whether players have adhered to the service rules using the YOLO algorithm through Machine Learning and Basic Python Programming.\
+During this period of Covid-19, many sports events have been cancelled and badminton likewise has been affected. I decided to try and aid referees in determining whether players have adhered to the service rules, (and trying to attempt to reduce the amount of people at a specific location, while trying to enable them to measure 1.15m as accurately as possible,) using the YOLO algorithm through Machine Learning and Basic Python Programming.\
 \
 The following are the results  
 ![Demo of 1.15m Service Line on Lee Chong Wei vs Son Wan Ho](data/helpers/lcwvsswh.gif)\
