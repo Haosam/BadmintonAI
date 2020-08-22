@@ -157,7 +157,7 @@ player.py is a tkinker GUI used to allow the selection of the player playing. Th
 7) Select the players according to what you have remembered in step (4)
 8) Let the video process and watch the saved video after this is done
 ```
-![Playerselect](data/helpers/playerselect.JPG)
+![Playerselect](data/helpers/playerselect.JPG)\
 Example of Player Selector - TKinter
 
 ### Current Flaws in algorithm and hardware
