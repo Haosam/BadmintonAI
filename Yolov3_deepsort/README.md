@@ -1,3 +1,6 @@
+# Acknowledgements and Gratitude
+I want to extend my utmost gratitude to [theAIGuysCode](https://github.com/theAIGuysCode/yolov3_deepsort) for their lessons, explanations and tutorials on yolov3. I would have never embarked on this project if it were not for their step-by-step explanation and guidance.I hope that my project can expand and one day encourage more sports to undertake Data Science/Artificial Intelligence/Machine Learning challenges to improve the sport
+
 # Object Tracking using YOLOv3, Deep Sort and Tensorflow
 This repository implements YOLOv3 and Deep SORT in order to perfrom real-time object tracking. Yolov3 is an algorithm that uses deep convolutional neural networks to perform object detection. We can feed these object detections into Deep SORT (Simple Online and Realtime Tracking with a Deep Association Metric) in order for a real-time object tracker to be created.
 
