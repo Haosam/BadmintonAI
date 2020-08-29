@@ -9,7 +9,7 @@
 
 # *Current Usage of this code*
 ```
-A) REPLACE object_tracker_edit.py in V1 with thie object_tracker_edit.py in this repo!
+A) REPLACE object_tracker_edit.py in Badminton_Service (The older repo) with thie object_tracker_edit.py in this repo!
 B) You may choose to remove player.py as it is not required
 
 
