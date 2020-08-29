@@ -290,8 +290,6 @@ def main(_argv):
                     s_height4 = ((int(bbox[3])-(int(bbox[1])))/height_5)*1.15
                     new_height_player5 = int(int(bbox[3])-int(s_height4))
                     cv2.line(img, (int(bbox[0]), int(new_height_player5)), (int(bbox[2]), int(new_height_player5)), (0,255,0), 2)
-            # else:
-            #     cv2.putText(img, class_name + "-" + str(track.track_id),(int(bbox[0]), int(bbox[1]-10)),0, 0.75, (255,255,255),2)
 
             
         ### UNCOMMENT BELOW IF YOU WANT CONSTANTLY CHANGING YOLO DETECTIONS TO BE SHOWN ON SCREEN
