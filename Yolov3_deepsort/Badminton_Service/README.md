@@ -168,7 +168,7 @@ I may or may not respond to issues raised also\
 While embarking on this project, these are some of the problems I have faced and expect to encounter on the code, hardware and actual video side
 - [ ] FPS is limited to 10~11fps. I am currently using a NVDIA 1080 for training. I do not expect to get any higher due to the large YOLO network, but I was hoping to get above 20fps to be able to test on real world live streaming. I am also using Windows, which may produce a lower fps rate.
 - [ ] NVIDA 1080. I'm sorry, I'm not a rich person that can afford a server running multiple NVDIA Pascal Titan X
-- [ ] Double loop problem. The TKinter GUI is running in a loop to obtain the names of the players until it is cancelled. The video processing is also a loop. I have not figured a way to enable both loops to run simulataneously. If that happens. You can change the values of the Player Names as the video is being processed. This would be a huge improvement on what I have written
+- [x] Double loop problem. The TKinter GUI is running in a loop to obtain the names of the players until it is cancelled. The video processing is also a loop. I have not figured a way to enable both loops to run simulataneously. If that happens. You can change the values of the Player Names as the video is being processed. This would be a huge improvement on what I have written. - Achieved [here in this repo](https://github.com/Haosam/BadmintonAI/tree/master/Yolov3_deepsort/Badminton_Service_V2)
 - [ ] Player control. The current 1.15m is calculated w.r.t the players' heights from the approximate base of their shoes, and not the absolute height as stated in the bwf rules. A player may be able to manipulate this by kneeling low or physically lowering his/her height during service (Although I do not understand why they would do that, as the green line would just lower with the player)
 - [ ] Camera angle - It was difficult sourcing for good videos with good camera angles online as to run this yolo algorithm, it requires the camera to 'see' the player from the full height, rather than a bird eye view like what badmintonworld shows on their youtube channel
 - [ ] Video framing - Most good view videos have been edited by the video owners to reduce time wastage and focus on the game. However when deploying this algorithm, this causes an issue as deepsort works by 'anticipating' the next movement of the player. This causes frame cuts to detect the players as whole new different players
@@ -176,6 +176,7 @@ While embarking on this project, these are some of the problems I have faced and
 ---> Possible solution, run yolov3 only with a facial recognition module. Deepsort might not be required for this to work
 - [ ] Coach detection - Due to the similarity in uniforms of the coach and players, if the coach comes into the screen of the video, they will be detected as players.\
 ---> Possible solution as stated above
+- [ ] Small dataset. Please train on your own dataset if mine is not working properly on your videos. Like I said before, I only trained on 400+ images
 
 ## Acknowledgments
 * [theAIGuysCode](https://github.com/theAIGuysCode/yolov3_deepsort)
