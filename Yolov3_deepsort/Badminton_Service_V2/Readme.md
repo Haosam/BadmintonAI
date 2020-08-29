@@ -9,6 +9,10 @@
 
 # *Current Usage of this code*
 ```
+A) REPLACE object_tracker_edit.py in V1 with thie object_tracker_edit.py in this repo!
+B) You may choose to remove player.py as it is not required
+
+
 1) Run python object_tracker_edit.py --video ./data/video/b1.mp4 --output ./data/video/b1results.avi --weights ./weights/yolov3-custom.tf --num_classes 1 --classes ./data/labels/obj.names
 2) Select any player for fun
 3) Let video run and select player according to the players shown on the screen
