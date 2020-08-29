@@ -25,3 +25,6 @@ B) You may choose to remove player.py as it is not required
 - [ ] Multiple player detections. If the player detection exceed more than 5 players, it will detect all the players as the same player. So for example, if 2 or more players walk out of the frame and back in, they are detected as Player 5,6,7,etc... I could write a 10-player preset in the GUI, but it would be meaningless if it exceeds again. I have not been able to figure out how to streamline the process on detecting Player 5, Player 6, Player 7, etc...
 - [ ] Small dataset. Please train on your own dataset if mine is not working properly on your videos. Like I said before, I only trained on 400+ images
 - [ ] Lesser FPS due to longer code. I think processing rate dropped...
+
+** I reiterate once again - I may or may not continue this project as I am currently working as a System Engineer with a few projects on hand.
+I may or may not respond to issues raised also
