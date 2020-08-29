@@ -1,6 +1,6 @@
 ## Did an Update of the Badminton Service Repository
 
-*For a Proper Understanding of this, please just read this [Badminton Service V1](https://github.com/Haosam/BadmintonAI/tree/master/Yolov3_deepsort/Badminton_Service)
+*For a Proper Understanding of this, please just read this -  [Badminton Service V1](https://github.com/Haosam/BadmintonAI/tree/master/Yolov3_deepsort/Badminton_Service)
 
 ### Changelog
 - Added multithreading to enable GUI change of player with the video
